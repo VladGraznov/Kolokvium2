@@ -1,21 +1,25 @@
 #include <iostream>
- 
-    using namespace std;
- 
-int main() {
+#include <string>
+
+using namespace std;
+
+int main(){
     char c;
-    string s, s0, res = "";
-    cout << "Enter a string \'s\':\n";
-    getline(cin, s);
-    cout << "Enter a string \'s0\':\n";
-    getline(cin, s0);
-    cout << "Enter a symbol \'c\':\n";
+    string s, s1;
+    
     cin >> c;
-    for (int i = -1; s[++i] != '\0';) {
-        if (s[i] == c) res += s0;
-        res += s[i];
+    cin >> s >> s1;
+    
+    for(int i = 0; i < s.length(); ++i) {
+        if(s[i] == c) {
+            s.insert(i, s1);
+            
+            i += s1.length();
+        }
     }
-    cout << "Target info:\n" << res << "\n";
+    
+    cout << s;
+    
     system("pause");
     return 0;
 }
